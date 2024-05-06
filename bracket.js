@@ -34,7 +34,26 @@ function checkBrackets() {
 
 //takes an array of strings and returns the longest one. 
 function isBalanced(brackets) {
+    const stack = [];
+    const openingBrackets = '([{';
+    const closingBrackets = ')]}';
+    const bracketPairs = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    };
 
-   return false;
+    for (let i of brackets) {
+        if (openingBrackets.includes(i)) {
+            stack.push(i);
+        } else if (closingBrackets.includes(i)) {
+            const matchingOpeningBracket = bracketPairs[i];
+            if (stack.length === 0 || stack.pop() !== matchingOpeningBracket) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
 
 }
