@@ -13,7 +13,7 @@ const testbrackets5 = "[()";
 function checkBrackets() {
 
     //change testbrackets here. makes easire to change in one place.
-    let testbrackets = testbrackets1;
+    let testbrackets = document.getElementById("bracketInput").value;
 
     //implement isBalanced function. checks if the bracket string is balanced.
     let results = isBalanced(testbrackets);
@@ -29,6 +29,9 @@ function checkBrackets() {
 
     //display the message
     document.getElementById("results").innerHTML = msg;
+    
+    // Clear the input field
+    document.getElementById("bracketInput").value = "";
 
 }
 
