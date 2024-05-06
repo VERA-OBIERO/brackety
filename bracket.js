@@ -57,3 +57,5 @@ function isBalanced(brackets) {
     return stack.length === 0;
 
 }
+
+module.exports = isBalanced;
